@@ -1,4 +1,14 @@
 SalesListingApp::Application.routes.draw do
+  resources :purchases
+
+  get "pages/home"
+
+  get "pages/about"
+
+  get "pages/contact"
+
+  get "pages/privacy"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
