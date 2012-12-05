@@ -24,7 +24,7 @@ describe ProductsController do
   # Product. As you add validations to Product, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "member_id" => "1" }
+    { :available => true, :photo => "photo", :brand => "apple", :color => "white", :description => "abc", :expiry_date => 5.days.ago, :fragile => true, :listing_date => 2.days.ago, :member_id => 1 :name => iPhone, :price => "5000 Riyals" }
   end
 
   # This should return the minimal set of values that should be in the session

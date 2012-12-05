@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    products_list = Product.all.map{|product| product}
+    products_list.each do|product|
+    if product.available? || product.member_id == @user.id
+      list << product
+    end
+    @products = list
 
     respond_to do |format|
       format.html # index.html.erb
