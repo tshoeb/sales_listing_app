@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Member:</b>
+  <%= @product.member_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @product.color %>
+</p>
+
+<p>
+  <b>Brand:</b>
+  <%= @product.brand %>
+</p>
+
+<p>
+  <b>Fragile:</b>
+  <%= @product.fragile %>
+</p>
+
+<p>
+  <b>Available:</b>
+  <%= @product.available %>
+</p>
+
+<p>
+  <b>Listing date:</b>
+  <%= @product.listing_date %>
+</p>
+
+<p>
+  <b>Expiry date:</b>
+  <%= @product.expiry_date %>
+</p>
+
+<% unless @product.photo_url.nil? %>
+  <p><%= image_tag @product.photo_url %></p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
