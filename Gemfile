@@ -1,51 +1,26 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.7'
-gem 'bootstrap-sass', '2.0.4'
-gem 'bcrypt-ruby'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
-end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
-
 gem 'heroku'
+gem 'bcrypt-ruby'
+gem 'rails'
+gem 'carrierwave'
+gem 'paperclip'
+gem 'jquery-rails'
+gem 'execjs'
+gem 'therubyracer'
+gem 'bootstrap-sass'
+gem 'libv8'
 
-group :production do
-  gem 'pg'
-  gem 'thin'
-end
+# for deployment on Heroku
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
 end
 
 group :test do
@@ -56,3 +31,13 @@ group :test do
   gem 'launchy'
   gem 'shoulda-matchers'
 end
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+
+
