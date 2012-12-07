@@ -1,7 +1,7 @@
 SalesListingApp::Application.routes.draw do
-  resources :users
-
-  resources :purchases
+    resources :users
+    resources :purchases
+    resources :sessions
 
     root :to => 'pages#home'
     match '/home', :to => 'pages#home'
@@ -11,8 +11,4 @@ SalesListingApp::Application.routes.draw do
     match '/signup', :to => 'users#new'
     match '/login', :to => 'sessions#new'
     match '/logout', :to => 'sessions#destroy'
-
-
-   
-
 end
