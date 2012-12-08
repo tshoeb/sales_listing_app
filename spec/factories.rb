@@ -1,12 +1,11 @@
 FactoryGirl.define do
-	factory :owner do
-		firstname "Srinjoy"
-		lastname "Chakravarty"
-		address "704-B The Pearl Qatar"
-		city "Doha"
-		country "QA"
-		email "chaxz93@gmail.com"
-		phone "97444724223"
-		active true
+	factory :user do
+		first_name "Edwin"
+		last_name "van der Sar"
+		email "vds@cmu.com"
+		country "Denmark"
+		phone "97455641191"
+		password "evds"
+		password_digest "evds"
 	end	
 end	

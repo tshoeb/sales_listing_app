@@ -1,3 +1,7 @@
+Given /^an initial business$/ do
+  @evds = FactoryGirl.create(:user)
+end
+
 Given /^I am on the home page$/ do
   visit root_path
 end
@@ -43,8 +47,54 @@ Then /^I should not see "(.*?)"$/ do |msg|
 end
 
 Then /^"(.*?)" should be part of the "(.*?)"$/ do |txt, tag|
-    page.should have_selector(tag, :text => txt)
+  page.should have_selector(tag, :text => txt)
 end
+
+Given /^I am on the 'users' page$/ do
+  visit users_path
+end
+
+Then /^for the "(.*?)", I should see "(.*?)"$/ do |csstag, textvalue|
+  page.should have_css(csstag, :text => textvalue)
+end
+
+Then /^for the "(.*?)", I should see a link to "(.*?)"$/ do |csstag, textvalue|
+  within csstag do
+    page.should have_link textvalue
+  end
+end
+
+Given /^I am on the 'new user' page$/ do
+  visit new_user_path
+end
+
+When /^I enter "(.*?)" for "(.*?)"$/ do |value, field|
+  fill_in field, :with => value
+end
+
+When /^I select "(.*?)" for "(.*?)"$/ do |value, field|
+  select value, :from => field
+end
+
+When /^I follow the "(.*?)" link for "(.*?)"$/ do |crud_link, cell_value|
+  within_table('User List') do
+    within('tr', :text => cell_value) do
+      find('a', :text => crud_link).click
+    end
+  end    
+end
+
+When /^I change the email address to "(.*?)"$/ do |new_email|
+  fill_in "Email", :with => new_email
+end
+
+When /^I click the "(.*?)" button$/ do |button_name|
+  click_button button_name
+end
+
+
+
+
 
 
 

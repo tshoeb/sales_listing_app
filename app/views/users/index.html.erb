@@ -1,11 +1,10 @@
 <h1>Listing users</h1>
 
-<table>
+<table id="User List">
   <tr>
-    <th>Email</th>
-    <th>Password digest</th>
     <th>First name</th>
     <th>Last name</th>
+    <th>Email</th>
     <th>Country</th>
     <th>Phone</th>
     <th></th>
@@ -15,10 +14,9 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.email %></td>
-    <td><%= user.password_digest %></td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
+    <td><%= user.email %></td>
     <td><%= user.country %></td>
     <td><%= user.phone %></td>
     <td><%= link_to 'Show', user %></td>
