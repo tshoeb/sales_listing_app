@@ -1,8 +1,8 @@
 Given /^an initial business$/ do
   @talal = FactoryGirl.create(:user)
   @srinjoy = FactoryGirl.create(:user, :first_name => "Srinjoy", :last_name => "Chakravarty", :country => "India", :email => "chaxz@cmu.edu", :phone => "97455641191", :password => "hi", :password_confirmation => "hi")
-  @iPhone = FactoryGirl.create(:product)
-  @srinjoy_buys_iPhone4s_from_talal = FactoryGirl.create(:purchase, :user => @srinjoy)
+  @iPhone = FactoryGirl.create(:product, :user => @srinjoy)
+  #@srinjoypurchase = FactoryGirl.create(:purchase)
 end
 
 Given /^I am on the home page$/ do
@@ -87,6 +87,15 @@ When /^I follow the "(.*?)" link for "(.*?)"$/ do |crud_link, cell_value|
   end    
 end
 
+When /^I blindly follow the "(.*?)" link for "(.*?)"$/ do |crud_link, cell_value|
+  within_table('Product List') do
+    within('tr', :text => cell_value) do
+      find('a', :text => crud_link).click
+    end
+  end    
+end
+
+
 When /^I change the email address to "(.*?)"$/ do |new_email|
   fill_in "Email", :with => new_email
 end
@@ -110,6 +119,14 @@ end
 Given /^I am on the 'new product' page$/ do
   visit new_product_path 
 end
+
+Then /^I change the price to "(.*?)"$/ do |new_price|
+  fill_in "Price", :with => new_price
+end
+
+
+
+
 
 
 

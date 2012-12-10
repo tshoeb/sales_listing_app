@@ -41,9 +41,9 @@ Feature: User information
 					And I should see "Phone: 55566090897"
 					And for the "body", I should see a link to "Back"
 
-				Scenario: Update User
+				Scenario: Update Users
 					Given I am on the 'users' page
-					When I follow the "Edit" link for "Talal"
+					When I follow the "Edit" link for "Srinjoy"
 					Then for the "body", I should see a link to "Show"
 					Then for the "body", I should see a link to "Back"
 					And I change the email address to "robben@holland.com"
@@ -53,7 +53,7 @@ Feature: User information
 					Then I should see "User was successfully updated."
 					And I should see "Email: robben@holland.com"
 
-				Scenario: Delete User
+				Scenario: Delete Users
 					Given I am on the 'users' page
-    				When I follow the "Destroy" link for "Talal"
-    				Then I should not see "Talal"	
+    				When I follow the "Destroy" link for "Srinjoy"
+    				Then I should not see "Srinjoy"	

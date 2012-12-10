@@ -11,8 +11,8 @@ FactoryGirl.define do
 
 	factory :product do
 		available true
-		brand "apple"
-		color "white"
+		brand "Apple"
+		color "White"
 		description "abc"
 		expiry_date 3.years.from_now
 		fragile true
