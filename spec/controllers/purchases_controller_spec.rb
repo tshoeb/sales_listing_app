@@ -24,7 +24,7 @@ describe PurchasesController do
   # Purchase. As you add validations to Purchase, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "user_id" => "1" }
+    { :delivery_date => 5.days.ago, :user_id => 1, :product_id => 1, :purchase_date => 2.days.ago}
   end
 
   # This should return the minimal set of values that should be in the session

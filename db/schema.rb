@@ -13,6 +13,22 @@
 
 ActiveRecord::Schema.define(:version => 20121210092244) do
 
+  create_table "products", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "price"
+    t.string   "description"
+    t.string   "color"
+    t.string   "brand"
+    t.boolean  "fragile"
+    t.boolean  "available"
+    t.date     "listing_date"
+    t.date     "expiry_date"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "photo"
+  end
+
   create_table "purchases", :force => true do |t|
     t.integer  "user_id"
     t.integer  "product_id"
