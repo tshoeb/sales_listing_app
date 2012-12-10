@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "products/show" do
   before(:each) do
     @product = assign(:product, stub_model(Product,
-      :member_id => 1,
+      :user_id => 1,
       :name => "Name",
       :price => "Price",
       :description => "Description",

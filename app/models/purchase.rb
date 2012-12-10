@@ -1,5 +1,5 @@
 class Purchase < ActiveRecord::Base
-  attr_accessible :delivery_date, :member_id, :product_id, :purchase_date
+  attr_accessible :delivery_date, :user_id, :product_id, :purchase_date
 
-  validates :delivery_date, :member_id, :product_id, :purchase_date, :phone, :presence => true
+  validates :delivery_date, :user_id, :product_id, :purchase_date, :presence => true
 end

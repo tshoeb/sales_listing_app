@@ -3,9 +3,11 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     products_list = Product.all.map{|product| product}
+    list = []
     products_list.each do|product|
-    if product.available? || product.member_id == @user.id
-      list << product
+      if product.available? || product.user_id == @user.id
+        list << product
+      end
     end
     @products = list
 

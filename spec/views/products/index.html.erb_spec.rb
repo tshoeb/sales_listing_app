@@ -4,7 +4,7 @@ describe "products/index" do
   before(:each) do
     assign(:products, [
       stub_model(Product,
-        :member_id => 1,
+        :user_id => 1,
         :name => "Name",
         :price => "Price",
         :description => "Description",
@@ -14,7 +14,7 @@ describe "products/index" do
         :available => false
       ),
       stub_model(Product,
-        :member_id => 1,
+        :user_id => 1,
         :name => "Name",
         :price => "Price",
         :description => "Description",

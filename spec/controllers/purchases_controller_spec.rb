@@ -24,7 +24,7 @@ describe PurchasesController do
   # Purchase. As you add validations to Purchase, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "member_id" => "1" }
+    { :delivery_date => 5.days.ago, :user_id => 1, :product_id => 1, :purchase_date => 2.days.ago}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -89,14 +89,14 @@ describe PurchasesController do
       it "assigns a newly created but unsaved purchase as @purchase" do
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        post :create, {:purchase => { "member_id" => "invalid value" }}, valid_session
+        post :create, {:purchase => { "user_id" => "invalid value" }}, valid_session
         assigns(:purchase).should be_a_new(Purchase)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        post :create, {:purchase => { "member_id" => "invalid value" }}, valid_session
+        post :create, {:purchase => { "user_id" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -110,8 +110,8 @@ describe PurchasesController do
         # specifies that the Purchase created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Purchase.any_instance.should_receive(:update_attributes).with({ "member_id" => "1" })
-        put :update, {:id => purchase.to_param, :purchase => { "member_id" => "1" }}, valid_session
+        Purchase.any_instance.should_receive(:update_attributes).with({ "user_id" => "1" })
+        put :update, {:id => purchase.to_param, :purchase => { "user_id" => "1" }}, valid_session
       end
 
       it "assigns the requested purchase as @purchase" do
@@ -132,7 +132,7 @@ describe PurchasesController do
         purchase = Purchase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        put :update, {:id => purchase.to_param, :purchase => { "member_id" => "invalid value" }}, valid_session
+        put :update, {:id => purchase.to_param, :purchase => { "user_id" => "invalid value" }}, valid_session
         assigns(:purchase).should eq(purchase)
       end
 
@@ -140,7 +140,7 @@ describe PurchasesController do
         purchase = Purchase.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Purchase.any_instance.stub(:save).and_return(false)
-        put :update, {:id => purchase.to_param, :purchase => { "member_id" => "invalid value" }}, valid_session
+        put :update, {:id => purchase.to_param, :purchase => { "user_id" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end
