@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :products
   validates_presence_of :password, :on => :create
+
   validates :country, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :presence => true
   validates_format_of :email, :with => /^[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info|qa))$/i, :message => "is not a valid format"
   validates_format_of :phone, :with => /^(\+?\d{11}|\+?\d{3}?[-.]?\d{4}[-.]?\d{4})$/, :message => "should be 11 digits (country code needed) delimited with dashes only"
-  COUNTRIES = [['Qatar'], ['Saudi Arabia'], ['United Arab Emirates']]
+  COUNTRIES = [['Austria'], ['Bahrain'], ['Bangladesh'], ['Belgium'], ['China'], ['Cyprus'], ['France'], ['Germany'], ['India'], ['Italy'], ['Jordan'], ['Liechtenstein'], ['Luxembourg'], ['Malaysia'], ['Maldives'], ['Netherlands'], ['Qatar'], ['Singapore'], ['Sri Lanka'], ['Switzerland'], ['Thailand'], ['United Arab Emirates'], ['Vatican City']]
 
   scope :alphabetical, order('first_name')
 

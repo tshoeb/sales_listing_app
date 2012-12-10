@@ -18,7 +18,7 @@ describe Product do
         	@talal = FactoryGirl.create(:user)
             @iphone = FactoryGirl.create(:product, :user => @talal)
             @ipad = FactoryGirl.create(:product, :name => "iPad", :listing_date => 8.days.ago, :user => @talal)
-            @ipod = FactoryGirl.create(:products, :name => "iPod", :listing_date => 6.days.ago)
+            @ipod = FactoryGirl.create(:product, :name => "iPod", :listing_date => 6.days.ago)
         end
         it "should check the creation of products" do
             @iphone.should be_valid
@@ -31,9 +31,9 @@ describe Product do
         describe "Testing Scopes" do
 	        it "should put products in chronological order of listing date" do
 	            dates = Array.new
-	            dates << 10.days.ago.to_date
+	            dates << 6.days.ago.to_date
 	            dates << 8.days.ago.to_date
-	            dates << 6.years.ago.to_date
+	            dates << 10.days.ago.to_date
 	            Product.chronological.map{|p| p.listing_date}.should == dates
 	        end
 	        it "should allow us to return the product for a given user" do

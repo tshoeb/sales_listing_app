@@ -35,7 +35,7 @@ describe "products/index" do
     assert_select "tr>td", :text => "Description".to_s, :count => 2
     assert_select "tr>td", :text => "Color".to_s, :count => 2
     assert_select "tr>td", :text => "Brand".to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => false.to_s, :count => 2
+    assert_select "tr>td", :text => false.to_s, :count => 4
+    assert_select "tr>td", :text => false.to_s, :count => 4
   end
 end

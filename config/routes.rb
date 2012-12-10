@@ -1,5 +1,10 @@
 SalesListingApp::Application.routes.draw do
+
   resources :products
+
+  resources :purchases
+
+
 
     resources :users
     resources :purchases

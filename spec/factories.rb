@@ -24,7 +24,7 @@ FactoryGirl.define do
 		expiry_date 2.days.ago
 		fragile true
 		listing_date 10.days.ago
-		user_id 1
+		user_id 2
 		name "iPhone"
 		price "5000 Riyals"
 	end
