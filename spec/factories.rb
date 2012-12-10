@@ -9,23 +9,23 @@ FactoryGirl.define do
 		password_confirmation "hello"
 	end	
 
-	factory :purchase do
-		delivery_date 2.days.ago
-		user_id 1
-		product_id 1
-		purchase_date 5.days.ago
-	end
-
 	factory :product do
 		available true
 		brand "apple"
 		color "white"
 		description "abc"
-		expiry_date 2.days.ago
+		expiry_date 3.years.from_now
 		fragile true
 		listing_date 10.days.ago
-		user_id 2
 		name "iPhone"
 		price "5000 Riyals"
+		association :user
+	end
+
+	factory :purchase do
+		delivery_date 2.days.ago
+		purchase_date 5.days.ago
+		association :user
+		association :product
 	end
 end	

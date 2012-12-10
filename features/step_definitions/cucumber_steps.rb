@@ -1,5 +1,8 @@
 Given /^an initial business$/ do
-  @evds = FactoryGirl.create(:user)
+  @talal = FactoryGirl.create(:user)
+  @srinjoy = FactoryGirl.create(:user, :first_name => "Srinjoy", :last_name => "Chakravarty", :country => "India", :email => "chaxz@cmu.edu", :phone => "97455641191", :password => "hi", :password_confirmation => "hi")
+  @iPhone = FactoryGirl.create(:product)
+  @srinjoy_buys_iPhone4s_from_talal = FactoryGirl.create(:purchase, :user => @srinjoy)
 end
 
 Given /^I am on the home page$/ do
@@ -91,6 +94,23 @@ end
 When /^I click the "(.*?)" button$/ do |button_name|
   click_button button_name
 end
+
+Given /^I am on the 'purchases' page$/ do
+  visit purchases_path
+end
+
+Given /^I am on the 'new purchase' page$/ do
+  visit new_purchase_path
+end
+
+Given /^I am on the 'products' page$/ do
+  visit products_path
+end
+
+Given /^I am on the 'new product' page$/ do
+  visit new_product_path 
+end
+
 
 
 

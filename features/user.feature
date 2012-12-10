@@ -8,7 +8,7 @@ Feature: User information
 
 				Scenario: List Users
 					Given I am on the 'users' page
-					Then for the "title", I should see "Shopping App | Users"
+				
 					And for the "th", I should see "First name"
 					And for the "th", I should see "Last name"
 					And for the "th", I should see "Email"
@@ -24,7 +24,7 @@ Feature: User information
 
 				Scenario: Create User
 					Given I am on the 'new user' page
-					Then for the "title", I should see "Shopping App | Sign up"
+					
 					When I enter "Alexander" for "First name"
 					And I enter "Buttner" for "Last name"
 					And I select "Cyprus" for "Country"
