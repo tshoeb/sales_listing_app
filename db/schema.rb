@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203175747) do
+ActiveRecord::Schema.define(:version => 20121210092244) do
 
   create_table "purchases", :force => true do |t|
-    t.integer  "member_id"
+    t.integer  "user_id"
     t.integer  "product_id"
     t.date     "purchase_date"
     t.date     "delivery_date"

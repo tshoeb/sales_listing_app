@@ -4,11 +4,11 @@ describe "purchases/index" do
   before(:each) do
     assign(:purchases, [
       stub_model(Purchase,
-        :member_id => 1,
+        :user_id => 1,
         :product_id => 2
       ),
       stub_model(Purchase,
-        :member_id => 1,
+        :user_id => 1,
         :product_id => 2
       )
     ])

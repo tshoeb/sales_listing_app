@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Member</th>
+    <th>User</th>
     <th>Product</th>
     <th>Purchase date</th>
     <th>Delivery date</th>
@@ -13,7 +13,7 @@
 
 <% @purchases.each do |purchase| %>
   <tr>
-    <td><%= purchase.member_id %></td>
+    <td><%= purchase.user_id %></td>
     <td><%= purchase.product_id %></td>
     <td><%= purchase.purchase_date %></td>
     <td><%= purchase.delivery_date %></td>
