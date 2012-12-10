@@ -1,4 +1,4 @@
-Feature: Owner information
+Feature: User information
 	In order to run a sales listing website
 	As the administrator
 	I want to be able to list, create, update, and delete user information
@@ -24,6 +24,7 @@ Feature: Owner information
 
 				Scenario: Create User
 					Given I am on the 'new user' page
+					Then for the "title", I should see "Shopping App | Sign up"
 					When I enter "Alexander" for "First name"
 					And I enter "Buttner" for "Last name"
 					And I select "Cyprus" for "Country"
@@ -56,6 +57,3 @@ Feature: Owner information
 					Given I am on the 'users' page
     				When I follow the "Destroy" link for "Talal"
     				Then I should not see "Talal"	
-   					
-
-

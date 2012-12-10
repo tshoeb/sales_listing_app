@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
+    @title = "Shopping Cart"
     @purchases = Purchase.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
+    @title = "Your Purchase"
     @purchase = Purchase.find(params[:id])
 
     respond_to do |format|
@@ -24,7 +26,9 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   # GET /purchases/new.json
   def new
+    @title = "Buy"
     @purchase = Purchase.new
+   # @purchase = current_user.purchases.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,6 +38,7 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
+    @title = "Edit Order"
     @purchase = Purchase.find(params[:id])
   end
 

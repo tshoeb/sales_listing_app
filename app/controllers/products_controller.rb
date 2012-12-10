@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    @title = "Online Store"
     products_list = Product.all.map{|product| product}
     list = []
     products_list.each do|product|
@@ -20,6 +21,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @title = "Your Product"
     @product = Product.find(params[:id])
 
     respond_to do |format|
@@ -31,7 +33,9 @@ class ProductsController < ApplicationController
   # GET /products/new
   # GET /products/new.json
   def new
+    @title = "Register Product"
     @product = Product.new
+  # @product = current_user.products.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,6 +45,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @title = "Edit Product"
     @product = Product.find(params[:id])
   end
 

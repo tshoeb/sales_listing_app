@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
 
   belongs_to :user
 
+  KULER = [['Amber'], ['Aquamarine'], ['Auburn'], ['Beige'], ['Black'], ['Blue'], ['Bronze'], ['Brown'], ['Burgundy'], ['Crimson'], ['Cyan'], ['Emerald'], ['Fuchsia'], ['Gold'], ['Green'], ['Grey'], ['Indigo'], ['Ivory'], ['Jade'], ['Khaki'], ['Lavender'], ['Lemon'], ['Lilac'], ['Lime'], ['Magenta'], ['Maroon'], ['Mauve'], ['Mint'], ['Mustard'], ['Olive'], ['Orange'], ['Peach'], ['Pear'], ['Pine'], ['Pink'], ['Platinum'], ['Plum'], ['Purple'], ['Red'], ['Rose'], ['Ruby'], ['Rust'], ['Saffron'], ['Sapphire'],  ['Scarlet'], ['Shamrock'], ['Silver'], ['Tan'], ['Tangerine'], ['Teal'], ['Titanium'], ['Turquoise'], ['Vermilion'], ['Violet'], ['Viridian'], ['Wheat'],['White'],['Yellow'],['Zucchini']]
   scope :available, where('available = ?', true)
   scope :for_user, lambda{|user_id| where("user_id = ?", user_id)}
   scope :chronological, order('listing_date DESC')
