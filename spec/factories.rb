@@ -23,8 +23,8 @@ FactoryGirl.define do
 	end
 
 	factory :purchase do
-		delivery_date 2.days.ago
-		purchase_date 5.days.ago
+		delivery_date 10.days.from_now
+		purchase_date Date.today
 		association :user
 		association :product
 	end

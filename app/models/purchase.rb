@@ -5,6 +5,7 @@ class Purchase < ActiveRecord::Base
 
   validates :delivery_date, :user_id, :product_id, :purchase_date, :presence => true
 
-  attr_accessible :delivery_date, :product_id, :purchase_date, :user_id
-
+  scope :chronological, order('purchase_date DESC')
+  scope :latest, lambda{|num| limit(num).order('purchase_date DESC')}
+  scope :for_product, lambda{|product_id| where("product_id = ?", product_id)}
 end
