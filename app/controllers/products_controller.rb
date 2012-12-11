@@ -34,8 +34,7 @@ class ProductsController < ApplicationController
   # GET /products/new.json
   def new
     @title = "Register Product"
-    @product = Product.new
-  # @product = current_user.products.new
+    @product = current_user.products.new
 
     respond_to do |format|
       format.html # new.html.erb

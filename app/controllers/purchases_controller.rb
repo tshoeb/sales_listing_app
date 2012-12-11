@@ -27,8 +27,8 @@ class PurchasesController < ApplicationController
   # GET /purchases/new.json
   def new
     @title = "Buy"
-    @purchase = Purchase.new
-   # @purchase = current_user.purchases.new
+   # @purchase = Purchase.new
+    @purchase = current_user.purchases.new
 
     respond_to do |format|
       format.html # new.html.erb
