@@ -30,12 +30,13 @@ class PurchasesController < ApplicationController
    # @purchase = Purchase.new
     @purchase = current_user.purchases.new
 
+    if @purchase.save
+      UserMailer.new_purchase_msg(@purchase).deliver
+    end
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @purchase }
-    end
-    if @purchase.save
-      UserMailer.new_purchase_msg(@purchase).deliver
     end
   end
 
@@ -48,15 +49,15 @@ class PurchasesController < ApplicationController
   # POST /purchases
   # POST /purchases.json
   def create
-     id = params[:id]
-     @purchase = current_user.purchases.new()
-     @purchase.product_id = id
- @purchase.purchase_date = Date.today
- @purchase.delivery_date = 10.days.from_now
- logger.debug "THE PRODUCT IS #{@purchase.product_id}"
+    id = params[:id]
+    @purchase = current_user.purchases.new()
+    @purchase.product_id = id
+    availability(id)
+    @purchase.purchase_date = Date.today
+    @purchase.delivery_date = 10.days.from_now
     respond_to do |format|
       if @purchase.save
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
+        format.html { redirect_to @purchase, notice: 'Purchase was successfully created and email sent' }
         format.json { render json: @purchase, status: :created, location: @purchase }
       else
         format.html { render action: "new" }
@@ -90,6 +91,15 @@ class PurchasesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to purchases_url }
       format.json { head :no_content }
+    end
+  end
+  def availability(id)
+    productid = id
+    products_list = Product.all.map{|product| product}
+    products_list.each do|product|
+      if product.id == productid
+        product.available = false
+      end
     end
   end
 end
