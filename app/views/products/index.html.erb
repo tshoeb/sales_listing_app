@@ -1,8 +1,8 @@
 <h1>Listing products</h1>
 
-<table>
+<table id="Product List">
   <tr>
-    <th>User</th>
+    
     <th>Name</th>
     <th>Price</th>
     <th>Description</th>
@@ -10,7 +10,7 @@
     <th>Brand</th>
     <th>Fragile</th>
     <th>Available</th>
-    <th>Listing date</th>
+  
     <th>Expiry date</th>
     <th></th>
     <th></th>
@@ -19,7 +19,7 @@
 
 <% @products.each do |product| %>
   <tr>
-    <td><%= product.user_id %></td>
+    
     <td><%= product.name %></td>
     <td><%= product.price %></td>
     <td><%= product.description %></td>
@@ -27,7 +27,7 @@
     <td><%= product.brand %></td>
     <td><%= product.fragile %></td>
     <td><%= product.available %></td>
-    <td><%= product.listing_date %></td>
+ 
     <td><%= product.expiry_date %></td>
     <td><%= link_to 'Show', product %></td>
     <td><%= link_to 'Edit', edit_product_path(product) %></td>

@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :color %><br />
-    <%= f.text_field :color %>
+    <%= f.select(:color, Product::KULER) %>
   </div>
   <div class="field">
     <%= f.label :brand %><br />
-    <%= f.text_field :brand %>
+    <%= f.select(:brand, Product::BRAND) %>
   </div>
   <div class="field">
     <%= f.label :photo %><br />
