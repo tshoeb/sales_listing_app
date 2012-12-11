@@ -30,6 +30,9 @@ class PurchasesController < ApplicationController
       format.html # new.html.erb
       format.json { render json: @purchase }
     end
+    if @purchase.save
+      UserMailer.new_purchase_msg(@purchase).deliver
+    end
   end
 
   # GET /purchases/1/edit
@@ -60,7 +63,7 @@ class PurchasesController < ApplicationController
 
     respond_to do |format|
       if @purchase.update_attributes(params[:purchase])
-        format.html { redirect_to @purchase, notice: 'Purchase was successfully updated.' }
+        format.html { redirect_to @purchase, notice: 'Purchase was successfully made and email sent to you.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
