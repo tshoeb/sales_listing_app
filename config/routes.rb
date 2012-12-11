@@ -1,13 +1,8 @@
 SalesListingApp::Application.routes.draw do
 
-  resources :products
-
-  resources :purchases
-
-
-
-    resources :users
+    resources :products
     resources :purchases
+    resources :users
     resources :sessions
 
     root :to => 'pages#home'
