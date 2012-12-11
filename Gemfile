@@ -8,6 +8,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'bootstrap-sass'
 gem 'carrierwave'
+gem 'libv8', '~> 3.11.8'
 
 # for deployment on Heroku
 
