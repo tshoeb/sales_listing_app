@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SalesListingApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Online Shopping</title>
+<!-- <link href="style.css" rel="stylesheet" type="text/css" /> --> 
+<%= stylesheet_link_tag 'application', :media => 'screen' %>
+
 </head>
+
 <body>
+<div class="container">
+  <header>
+  <ul>
+  <nav class = "round">
+<%= link_to "Home |", '/home' %> 
+  <%= link_to "Contact |" , '/contact' %>
+  <%= link_to "About Us |" , '/about' %>
+    <%= link_to "Privacy Policies" , '/privacy' %>
 
-<%= yield %>
 
-</body>
+  </ul>
+  <ul class="chat">
+	<br> </br>
+    <a class="chat"> Free Chat online_shoping@gmail.com</a>
+  </ul>
+
+    <%= image_tag("header_pic.jpg", :alt => "Shop Online", :class => "round") %>
+   </nav>
+</div>
+</header>
+<section class= "round">
+<%=  yield %>
+</section>
+
+<div class="footer"><!--footer navigation start -->
+<ul>
+<button type="button"><%= link_to "Sign Up", '/sign_up' %></button>
+<button type="button"> <%= link_to "Sign In", '/sign_in' %></button>
+<button type="button"> <%= link_to "Schedule your meeting", '#' %></button>
+</ul>
+<design>
+<p> &copy; ShopOnline. all rights reserved</p>
+<p class="de">Designed by: Nourhen, Talal, and Srinjoy</a></p>
+</design>
+
+</div><!--footer navigation end -->
 </html>

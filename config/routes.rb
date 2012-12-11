@@ -1,7 +1,13 @@
 SalesListingApp::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-
+  match '/home', :to => 'pages#home'
+  match '/about', :to => 'pages#about'
+  match '/contact', :to => 'pages#contact'
+  match '/privacy', :to => 'pages#privacy'
+  match '/signup', :to => 'patients#new'
+  match '/login', :to => 'sessions#new'
+  match '/logout', :to => 'sessions#destroy'
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
