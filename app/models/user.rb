@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   attr_accessible :country, :email, :first_name, :last_name, :password, :password_confirmation, :phone
   before_save :format_phone
   has_secure_password
+  has_many :purchases
   has_many :products
+
   validates_presence_of :password, :on => :create
 
   validates :country, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :presence => true

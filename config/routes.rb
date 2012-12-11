@@ -1,16 +1,12 @@
 SalesListingApp::Application.routes.draw do
 
-  resources :products
-
-  resources :purchases
-
-
-
-    resources :users
+    resources :products
     resources :purchases
+    resources :users
     resources :sessions
 
     root :to => 'pages#home'
+    match 'purchases/:id' => 'purchases#create', :as => :buy
     match '/home', :to => 'pages#home'
     match '/about', :to => 'pages#about'
     match '/contact', :to => 'pages#contact'

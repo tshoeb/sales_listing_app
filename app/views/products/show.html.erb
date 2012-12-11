@@ -10,6 +10,10 @@
   <%= @product.name %>
 </p>
 
+<% unless @product.photo_url.nil? %>
+  <p><%= image_tag @product.photo_url %></p>
+<% end %>
+
 <p>
   <b>Price:</b>
   <%= @product.price %>
@@ -50,20 +54,7 @@
   <%= @product.expiry_date %>
 </p>
 
-<% unless @product.photo_url.nil? %>
-  <p><%= image_tag @product.photo_url %></p>
-<% end %>
 
-
-<%= link_to 'Purchase', 
- temp = Purchase.new
- temp.product_id = @product.id
- temp.user_id = @user.id
- d = date.today
- temp.purchase_date = d
- d += 10
- temp.delivery_date = d
- show_purchase_path(@temp)
-  %> |
+<%= button_to 'Purchase', buy_path(@product) %> |
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

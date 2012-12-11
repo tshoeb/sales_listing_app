@@ -2,6 +2,7 @@ class PurchasesController < ApplicationController
   # GET /purchases
   # GET /purchases.json
   def index
+    @title = "Shopping Cart"
     @purchases = Purchase.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class PurchasesController < ApplicationController
   # GET /purchases/1
   # GET /purchases/1.json
   def show
+    @title = "Your Purchase"
     @purchase = Purchase.find(params[:id])
 
     respond_to do |format|
@@ -24,7 +26,9 @@ class PurchasesController < ApplicationController
   # GET /purchases/new
   # GET /purchases/new.json
   def new
-    @purchase = Purchase.new
+    @title = "Buy"
+   # @purchase = Purchase.new
+    @purchase = current_user.purchases.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,14 +41,19 @@ class PurchasesController < ApplicationController
 
   # GET /purchases/1/edit
   def edit
+    @title = "Edit Order"
     @purchase = Purchase.find(params[:id])
   end
 
   # POST /purchases
   # POST /purchases.json
   def create
-    @purchase = Purchase.new(params[:purchase])
-
+     id = params[:id]
+     @purchase = current_user.purchases.new()
+     @purchase.product_id = id
+ @purchase.purchase_date = Date.today
+ @purchase.delivery_date = 10.days.from_now
+ logger.debug "THE PRODUCT IS #{@purchase.product_id}"
     respond_to do |format|
       if @purchase.save
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created.' }
