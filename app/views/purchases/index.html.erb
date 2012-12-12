@@ -13,8 +13,8 @@
 
 <% @purchases.each do |purchase| %>
   <tr>
-    <td><%= purchase.user_id %></td>
-    <td><%= purchase.product_id %></td>
+    <td><%= purchase.user.proper_name %></td>
+    <td><%= purchase.product.name %></td>
     <td><%= purchase.purchase_date %></td>
     <td><%= purchase.delivery_date %></td>
     <td><%= link_to 'Show', purchase %></td>

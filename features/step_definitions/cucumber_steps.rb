@@ -108,21 +108,18 @@ Given /^I am on the 'purchases' page$/ do
   visit purchases_path
 end
 
-Given /^I am on the 'new purchase' page$/ do
-  visit new_purchase_path
-end
-
 Given /^I am on the 'products' page$/ do
   visit products_path
-end
-
-Given /^I am on the 'new product' page$/ do
-  visit new_product_path 
 end
 
 Then /^I change the price to "(.*?)"$/ do |new_price|
   fill_in "Price", :with => new_price
 end
+
+
+
+
+
 
 
 
