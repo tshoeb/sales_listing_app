@@ -26,7 +26,7 @@ Feature: Standard Business
 
     Scenario: View webmaster information in footer
       Given I am on the home page
-      Then "Webmaster: Chakravarty | al-Ahmed | sonya-Feki © 2013" should be part of the "footer"
+      Then "Webmaster: Chakravarty | al-Ahmed © 2013" should be part of the "footer"
 
     Scenario: Functionality of Sign-up button
       Given I am on the home page
@@ -44,16 +44,16 @@ Feature: Standard Business
       Given I am on the home page
       When I follow the "About Us" link
       Then I should see "About us"
-      And I should see "Who we are? What we do?"
+      And I should see "Create your online store"
 
     Scenario: View 'Contact Us'
       Given I am on the home page
       When I follow the "Contact Us" link
       Then I should see "Contact info"
-      And I should see "How to contact us?"
+      And I should see "For account questions and customer service:"
 
     Scenario: View 'Privacy Policy'
       Given I am on the home page
       When I follow the "Privacy Policy" link
       Then I should see "Privacy Settings" 
-      And I should see "Your privacy is in safe hands!"  
+      And I should see "TERMS OF WEBSITE USE"  

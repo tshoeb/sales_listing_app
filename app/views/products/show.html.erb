@@ -2,7 +2,7 @@
 
 <p>
   <b>User:</b>
-  <%= @product.user_id %>
+  <%= @product.user.proper_name %>
 </p>
 
 <p>
@@ -55,6 +55,6 @@
 </p>
 
 
-<%= button_to 'Purchase', buy_path(@product) %>
+<%= button_to 'Purchase', buy_path(@product), class: "btn btn-large btn-primary" %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

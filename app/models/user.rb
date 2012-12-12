@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
 
   scope :alphabetical, order('first_name')
 
+  def proper_name
+    first_name + " " + last_name
+  end 
+
+  def name 
+    last_name + ", " + first_name   
+  end
+
   private
 
 	def format_phone
