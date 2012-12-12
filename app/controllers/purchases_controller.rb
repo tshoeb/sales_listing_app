@@ -52,11 +52,12 @@ class PurchasesController < ApplicationController
     id = params[:id]
     @purchase = current_user.purchases.new()
     @purchase.product_id = id
-    availability(id)
+    @product = Product.find(id)
+    @product.available = false
     @purchase.purchase_date = Date.today
     @purchase.delivery_date = 10.days.from_now
     respond_to do |format|
-      if @purchase.save
+      if @purchase.save && @product.save
         format.html { redirect_to @purchase, notice: 'Purchase was successfully created and email sent' }
         format.json { render json: @purchase, status: :created, location: @purchase }
       else
