@@ -6,8 +6,10 @@ class ProductsController < ApplicationController
     products_list = Product.all.map{|product| product}
     list = []
     products_list.each do|product|
-      if product.available? || product.user_id == @user.id
-        list << product
+      if product.available?
+        if product.expiry_date > Date.today || product.user_id == session[:user_id]
+          list << product
+        end
       end
     end
     @products = list
